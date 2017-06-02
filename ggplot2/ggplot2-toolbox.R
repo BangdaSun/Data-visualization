@@ -61,3 +61,33 @@ ggplot(diamonds, aes(depth)) + geom_density()
 ggplot(diamonds, aes(depth)) + geom_density(aes(fill = cut), alpha = .2)
 
 ### 5.5 Overplotting
+#   for small data, we can solve it by changing size of point
+#   example
+df = data.frame(x = rnorm(2000), y = rnorm(2000))
+norm = ggplot(df, aes(x, y))
+norm + geom_point()
+norm + geom_point(shape = 1)
+norm + geom_point(shape = ".")
+
+#   for larger data set, we can set transparency param alpha = ...
+norm + geom_point(alpha = 1/3)
+norm + geom_point(alpha = 1/5)
+norm + geom_point(alpha = 1/10)
+
+### 5.6 3-D object
+
+### 5.7 Map
+#   use maps package: france, italy, nz, county/state/use, world
+#   we can use borders() to draw the borders of the map
+library(maps)
+data("us.cities")
+big_cities = subset(us.cities, pop > 600000)
+ggplot(us.cities, aes(x = long, y = lat)) +
+  geom_point() + 
+  borders("state", size = .5)
+
+tx_cities = subset(us.cities, country.etc == "NY")
+ggplot(tx_cities, aes(long, lat)) + 
+  geom_point(alpha = .5) +
+  borders("county", "new york", color = "grey70")
+
