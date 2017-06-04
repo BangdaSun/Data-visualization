@@ -91,3 +91,36 @@ ggplot(tx_cities, aes(long, lat)) +
   geom_point(alpha = .5) +
   borders("county", "new york", color = "grey70")
 
+### 5.10 Add notice
+
+#   example: add president info into economics data
+unemp = qplot(date, unemploy, data = economics, geom = "line",
+              xlab = "", ylab = "No. unemployed (1000s)")
+previous_theme = theme_set(theme_grey())
+unemp
+
+president = presidential[-(1:3), ]
+yrng = range(economics$unemploy)
+xrng = range(economics$date)
+unemp + geom_vline(aes(xintercept = as.numeric(start)),
+                   data = president)
+
+library(scales)
+unemp + geom_rect(aes(NULL, NULL, xmin = start, xmax = end, fill = party),
+                  ymin = yrng[1], ymax = yrng[2], data = president, alpha = .2) + 
+  scale_fill_manual(values = c("blue", "red"))
+
+last_plot() + geom_text(aes(x = start, y = yrng[1], label = name),
+                        data = president, size = 3, hjust = 0, vjust = 0)
+
+caption = paste(strwrap("Unemployment rates in the US have varied a lot over the years", 40), collapse = "\n")
+unemp + geom_text(aes(x, y, label = caption),
+                  data = data.frame(x = xrng[2], y = yrng[2]),
+                  hjust = 1.6, vjust = 1, size = 4)
+
+### 5.11 Weighted data
+#   e.g. in population data, population or area can be a weight
+qplot(percwhite, percbelowpoverty, data = midwest)
+qplot(percwhite, percbelowpoverty, data = midwest,
+      size = poptotal / 1e6) + scale_size_area("population\n(millions)", breaks = c(.5, 1, 2, 4))
+qplot(percwhite, percbelowpoverty, data = midwest, size = area) + scale_size_area()
