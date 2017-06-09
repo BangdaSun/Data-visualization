@@ -12,6 +12,7 @@
 #   https://www.stat.auckland.ac.nz/~ihaka/120/Lectures/lecture17.pdf
 #   http://www.stat.ufl.edu/~presnell/Courses/sta4504-2000sp/R/R-CDA.pdf
 #   https://github.com/jtr13/GR5702/blob/master/EDAVlecture20170117.pdf
+#   https://cran.r-project.org/web/packages/ggmosaic/vignettes/ggmosaic.html
 #
 
 #   Example: survival on titantic
@@ -79,3 +80,22 @@ mosaicplot(~ Survived + Class + Sex, data = Titanic)
 #   Compare the Sex distribution by different class
 mosaicplot(~ Class + Sex, data = Titanic)
 mosaicplot(~ Sex + Class, data = Titanic)
+
+#### Use ggplot2
+# install.packages("NHANES")
+# install.packages("plotly")
+# install.packages("productplots")
+# install.packages("ggmosaic")
+
+library(NHANES)
+library(plotly)
+library(productplots)
+library(ggmosaic)
+
+#   Example
+ggplot(data = NHANES) +
+  geom_mosaic(aes(weight = Weight, x = product(SleepHrsNight, AgeDecade), 
+                  fill=factor(SleepHrsNight)), na.rm=TRUE) +    
+  theme(axis.text.x=element_text(angle=-25, hjust= .1)) + 
+  labs(x="Age in Decades ", title='f(SleepHrsNight | AgeDecade) f(AgeDecade)') + 
+  guides(fill=guide_legend(title = "SleepHrsNight", reverse = TRUE))
