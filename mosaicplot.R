@@ -81,7 +81,16 @@ mosaicplot(~ Survived + Class + Sex, data = Titanic)
 mosaicplot(~ Class + Sex, data = Titanic)
 mosaicplot(~ Sex + Class, data = Titanic)
 
-#### Use ggplot2
+#### Use ggplot2 - geom_mosaic
+# 
+# aesthetics to be set:
+#   weight: weighted variable
+#   x: categorical variables, use product()
+#   fill: variable to be filled
+#   conds: facet / condition on
+#
+#   weight ~ fill + x | conds
+
 # install.packages("NHANES")
 # install.packages("plotly")
 # install.packages("productplots")
@@ -92,10 +101,40 @@ library(plotly)
 library(productplots)
 library(ggmosaic)
 
-#   Example
-ggplot(data = NHANES) +
-  geom_mosaic(aes(weight = Weight, x = product(SleepHrsNight, AgeDecade), 
-                  fill=factor(SleepHrsNight)), na.rm=TRUE) +    
-  theme(axis.text.x=element_text(angle=-25, hjust= .1)) + 
-  labs(x="Age in Decades ", title='f(SleepHrsNight | AgeDecade) f(AgeDecade)') + 
-  guides(fill=guide_legend(title = "SleepHrsNight", reverse = TRUE))
+#   Apply on Titanic
+Titanicdf = data.frame(Titanic)
+
+#   One categorical variable
+ggplot(data = Titanicdf) + 
+  geom_mosaic(aes(weight = Freq, x = product(Age), fill = Survived)) + 
+  labs(x = "Age", title = "Survival rate for different age")
+
+ggplot(data = Titanicdf) + 
+  geom_mosaic(aes(weight = Freq, x = product(Class), fill = factor(Survived))) + 
+  labs(x = "Class", title = "Survival rate for different class")
+
+#   Add facet
+ggplot(data = Titanicdf) + 
+  geom_mosaic(aes(weight = Freq, x = product(Class), fill = factor(Survived))) + 
+  facet_grid(Sex ~.) +
+  labs(x = "Class", title = "Survival rate for different class condition on sex") 
+
+ggplot(data = Titanicdf) + 
+  geom_mosaic(aes(weight = Freq, x = product(Class), fill = factor(Survived))) + 
+  facet_grid(Age ~ Sex) +
+  labs(x = "Class", title = "Survival rate for different class condition on sex and age") 
+
+#   Importance ordering
+ggplot(data = Titanicdf) +
+  geom_mosaic(aes(weight = Freq, x = product(Sex, Age), fill = Survived))
+
+ggplot(data = Titanicdf) +
+  geom_mosaic(aes(weight = Freq, x = product(Age, Sex), fill = Survived))
+
+#   Offset
+ggplot(data = Titanicdf) +
+  geom_mosaic(aes(weight = Freq, x = product(Survived), fill = Class), offset = 0.005)
+  
+#   Divider
+ggplot(data = Titanicdf) + 
+  geom_mosaic(aes(weight = Freq, x = product(Class), fill = factor(Survived)), divider = mosaic("v"))
