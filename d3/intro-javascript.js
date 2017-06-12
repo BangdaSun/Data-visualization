@@ -39,10 +39,13 @@ else {
 switch (myString) {
   case 'bangda':
     console.log('This is bangda.');
+    break;
   case 'jiahui':
     console.log('This is jiahui.');
+    break;
   default:
-    console.log('Who are you?')
+    console.log('Who are you?');
+    break;
 }
 
 // Loop
