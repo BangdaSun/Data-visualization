@@ -74,3 +74,15 @@ console.log('first element of arr: ' + arr[0]);
 console.log('last element of arr: ' + arr[2]);
 console.log('length of arr (array): ' + arr.length);
 console.log('length of arr[0] (string): ' + arr[1].length);
+
+// Object-oriented
+var people = {
+  name : "people",
+  age  : "1",
+  sex  : "male",
+};
+
+people.name   = "Bangda";
+prople["age"] = 23;
+
+var bangda = new Object(); // constructor
