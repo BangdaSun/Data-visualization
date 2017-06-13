@@ -1,5 +1,8 @@
 #   In practice, the form of data is important for visualization
 #   origin <=> long/wide <=> tidy
+#
+#   Reference: https://www.datacamp.com/courses/data-visualization-with-ggplot2-1
+#
 
 #   Extension of part 9.2 in ggplot-data-processing.R
 
