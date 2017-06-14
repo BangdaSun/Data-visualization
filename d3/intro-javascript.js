@@ -75,6 +75,10 @@ console.log('last element of arr: ' + arr[2]);
 console.log('length of arr (array): ' + arr.length);
 console.log('length of arr[0] (string): ' + arr[1].length);
 
+// some array method
+arr.push('four', 'five');
+arr.pop();
+
 // Object-oriented
 var people = {
   name : "people",
