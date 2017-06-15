@@ -48,6 +48,46 @@ switch (myString) {
     break;
 }
 
+// confirm() and prompt() function, as well as practice of prev content
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Check if the user is ready to play!
+confirm("I am ready to play!"); // give a confirm message to click "OK" on "Cancel"
+
+// Check the age
+var age = prompt("What's you age"); // prompt you to input something, and could save as variable
+
+if (age < 13) {
+    console.log("you're allowed to play but you take no responsibility\n");    
+}
+else {
+    console.log("let's play!!\n");    
+}
+
+// Introduction
+console.log("You are at a Justin Bieber concert, and you hear this lyric 'Lace my shoes off, start racing.'\n");
+
+// Interact with Bieber
+console.log("Suddenly, Bieber stops and says, 'Who wants to race me?'\n");
+var userAnswer = prompt("Do you want to race Bieber on stage?");
+
+// Different scenarios
+if (userAnswer === "yes") {
+    console.log("You and Bieber start racing. It's neck and neck! You win by a shoelace!\n");
+} 
+else {
+    console.log("Oh no! Bieber shakes his head and singes 'I set a pace, so I can race without pacing.'\n");
+}
+
+// Ask for feedback
+var feedback = prompt("Message");
+if (feedback > 8) {
+    console.log("Thank you! We should race at the next concert!");    
+} 
+else {
+    console.log("I'll keep practicing coding and racing.");    
+}
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 // Loop
 var sum = 0;
 for (var i = 1; i <= 100; i++){
