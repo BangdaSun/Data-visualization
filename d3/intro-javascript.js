@@ -48,7 +48,12 @@ switch (myString) {
     break;
 }
 
-// confirm() and prompt() function, as well as practice of prev content
+/*
+  confirm() and prompt() function, as well as practice of prev content
+  window object 
+  confirm() will display a confirm box, ask users to confirm 
+  prompt() will display a prompt box, ask users to do something
+*/
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Check if the user is ready to play!
 confirm("I am ready to play!"); // give a confirm message to click "OK" on "Cancel"
