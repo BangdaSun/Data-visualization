@@ -121,6 +121,8 @@ while (i <= 100) {
   i ++;
 }
 
+// as well as do-while loop
+
 // Function
 function printName(name) {
   console.log(name);
