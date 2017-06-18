@@ -1,5 +1,6 @@
 /*
   Javascript tutorial from codecademy
+  the syntax of javascript is similar to other popular languages like java, python etc
 */
 
 // Hello Javascript
@@ -11,14 +12,24 @@ console.log('hello javascript');
     numbers
     boolean
 */
-var myString = 'bangda';
+var myString = 'bangda'; // for string, we can access it's character using [] index directly
 var myNumber = 23;
 var myBool   = true;
 
+// Varible type check and conversion
+String(myNumber);
+myBool.toString();
+
+Number('12345');
+
 console.log('My name is: ' + myString + ', I am ' + myNumber + ' year\'s old now.');
-console.log(myBool);
+console.log(myBool); 
+
+// Logical operator
+// keep in mind that 'equal' is === in js
 
 // Control flow
+// if - else - else if
 if (myNumber >= 18) {
   console.log(myName + ' is an adult now.');
 }
@@ -36,6 +47,7 @@ else {
   console.log('who are you?');
 }
 
+// switch
 switch (myString) {
   case 'bangda':
     console.log('This is bangda.');
@@ -93,6 +105,11 @@ else {
 }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// Random numbers
+// using Math. library
+// uniform distribution unif(0, 1)
+var rnd = Math.random();
+
 // Loop
 var sum = 0;
 for (var i = 1; i <= 100; i++){
@@ -113,7 +130,66 @@ function squareofX(x) {
   return x * x;
 }
 
+// Global and local variable
+/*
+  variables that are defined outside the function is gloabl variable, the scope is global.
+  while in the function are called local variable.
+  for example:
+*/
+var my_variable = 4;  // now it's global
+function myfunc(my_variable) {
+  my_variable = 8; // still global
+  var my_variable = 6; // it's local variable now
+  return my_variable + 1;
+}
+
+// Example: game of paper/rock/scissors
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var userChoice = prompt("Do you choose rock, paper or scissors?");
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+	computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+	computerChoice = "paper";
+} else {
+	computerChoice = "scissors";
+} console.log("Computer: " + computerChoice);
+
+var compare = function(choice1, choice2) {
+    if (choice1 === choice2) {
+        return "The result is a tie!";
+    }
+    else if (choice1 === "rock") {
+        if (choice2 === "scissors") {
+            return "rock wins";
+        }
+        else {
+            return "paper wins";
+        }
+    }
+    else if (choice1 === "paper") {
+        if (choice2 === "rock") {
+            return "paper wins";
+        } 
+        else {
+            return "scissors wins";    
+        }
+    }
+    else if (choice1 === "paper") {
+        if (choice2 === "rock") {
+            return "paper wins";
+        }    
+        else {
+            return "scissors wins";    
+        }
+    }
+}
+
+compare(userChoice, computerChoice);
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 // Array
+// unlike python built-in list, here different data type could be contained in same array
 var arr = ['one', 'two', 'three'];
 console.log('first element of arr: ' + arr[0]);
 console.log('last element of arr: ' + arr[2]);
@@ -121,6 +197,7 @@ console.log('length of arr (array): ' + arr.length);
 console.log('length of arr[0] (string): ' + arr[1].length);
 
 // some array method
+arr.length;
 arr.push('four', 'five');
 arr.pop();
 
