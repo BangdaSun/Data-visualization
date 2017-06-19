@@ -13,6 +13,7 @@ console.log('hello javascript');
     boolean
 */
 var myString = 'bangda'; // for string, we can access it's character using [] index directly
+                         // toUpperCase(), toLowerCase()
 var myNumber = 23;
 var myBool   = true;
 
@@ -27,6 +28,7 @@ console.log(myBool);
 
 // Logical operator
 // keep in mind that 'equal' is === in js
+//  && - and, || - or, ! - not
 
 // Control flow
 // if - else - else if
@@ -48,10 +50,10 @@ else {
 }
 
 // switch
-switch (myString) {
-  case 'bangda':
+switch (myString) {  // myString need to be declared, e.g.: prompt() function
+  case 'bangda':  // case 'option1'
     console.log('This is bangda.');
-    break;
+    break;  // will go to default too if there is no break statement
   case 'jiahui':
     console.log('This is jiahui.');
     break;
@@ -59,6 +61,11 @@ switch (myString) {
     console.log('Who are you?');
     break;
 }
+
+// isNaN() function
+isNaN(NaN); // true
+isNaN("1"); // true
+isNaN(1);   // false
 
 /*
   confirm() and prompt() function, as well as practice of prev content
@@ -230,6 +237,11 @@ console.log('first element of arr: ' + arr[0]);
 console.log('last element of arr: ' + arr[2]);
 console.log('length of arr (array): ' + arr.length);
 console.log('length of arr[0] (string): ' + arr[1].length);
+
+// 2D array (same for higher dimension)
+var newArr = [[1, 4, 2], 
+	      [2, 3, 7],
+	      [4, 2, 5]];
 
 // some array method
 arr.length;
