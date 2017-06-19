@@ -111,17 +111,50 @@ else {
 var rnd = Math.random();
 
 // Loop
+// for
 var sum = 0;
 for (var i = 1; i <= 100; i++){
   sum = sum + i;
 }
 
+// while
 while (i <= 100) {
   sum = sum + i;
   i ++;
 }
 
-// as well as do-while loop
+// do-while
+do {
+    // statement;
+} while (true);
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// example: dragon slayer game
+var slaying = true;
+var youHit = Math.floor(Math.random() * 2);
+var damageThisRound = Math.floor(Math.random() * 5 + 1);
+var totalDamage = 0;
+
+while (slaying) {
+    if (youHit === 1) {
+        console.log("congratulations!");
+        if (totalDamage >= 4) {
+            console.log("you slew the dragon!");
+            slaying = false;
+        }
+        else {
+            youHit = Math.floor(Math.random() * 2);    
+        }
+    } 
+    else if (youHit === 0) {
+        console.log("dragon defested you");
+    }
+    totalDamage = totalDamage + damageThisRound;
+    
+    slaying = false;
+}
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Function
 function printName(name) {
