@@ -21,3 +21,12 @@ plt.ylabel('Petal Width')
 plt.title('Scatter plot of length and width of Petal')
 plt.grid(True)
 plt.show()
+plt.clf()
+
+### Histogram
+n, bins, patches = plt.hist(pWidth, bins = 20, color = 'g', alpha = 0.75, normed = True) # convert to np.array if doesn't work
+plt.xlabel('Petal width')
+plt.title('Distribution of petal width')
+plt.grid(True)
+plt.show()
+plt.clf()
