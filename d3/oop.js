@@ -41,7 +41,7 @@ var myObject = {
   interests: ['Programming', 'Basketball', 'Cooking']
 }; // keep in mind use colon : rather than assignement sign =
 
-// Anothe example
+// Anothe example, use Object() to create object. Additionally, there are two ways to set/access the attributes
 var friends = new Object();
 friends.bangda = {}; // we can add properties into bangda, equivalent to friends.bangda = new Object()
 friends[jiahui] = {}; // we can add properties into jiahui
@@ -89,4 +89,21 @@ var search = function(name) {
             return friends[key];
         }
     }
+}
+
+// Methods
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+/*
+  Similar to function, while use obj.method = function(args) {};
+  sometimes we can use 'this' key word before we define object, then assgin the function to methods
+*/
+
+// Method 1: set age
+myObject.setAge = function() {
+  myObject.age = myObject.age + 1;
+}
+
+// Method 2: get birth year
+myObject.getBirthYear = function(thisYear) {
+  return thisYear - myObject.age;
 }
