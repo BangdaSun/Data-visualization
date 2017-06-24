@@ -163,7 +163,8 @@ while (slaying) {
 }
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// Function
+// Function (defintion not unique)
+// python style definition
 function printName(name) {
   console.log(name);
 }
@@ -172,10 +173,16 @@ function squareofX(x) {
   return x * x;
 }
 
+// r style definition
+var ageDifference = function(person1, person2) {
+    return person1.age - person2.age;
+};
+
 // Global and local variable
 /*
   variables that are defined outside the function is gloabl variable, the scope is global.
   while in the function are called local variable.
+  the difference is whether a new variable is defined in some sense.
   for example:
 */
 var my_variable = 4;  // now it's global
