@@ -25,8 +25,14 @@ phonebookEntry.phone();
   
   2.
   var obj = new Object();
-  
+ 
   then followed with attribute (key - value)
+
+  3. 
+  function Object(attr1, attr2, ...) {
+    this.attr1 = attr1;
+    this.attr2 = attr2; // very similar to java
+  }
 */
 
 var myObj = new Object();
@@ -63,16 +69,16 @@ friends.bill = {
     lastName : 'James',
     number : '23',
     address : ['169 Manhattan Ave', '3A']
-    }
+}
     
 friends.steve = {
     firstName : 'Steve',
     lastName : 'Harden',
     number : '13',
     address : ['169 Manhattan Ave', '4A']
-    }
+}
 
-// list(): list info of object
+// list(): list info of object - example of for loop with objects
 var list = function(object) {
     for (var key in object) {
         console.log(key);
@@ -102,8 +108,61 @@ var search = function(name) {
 myObject.setAge = function() {
   myObject.age = myObject.age + 1;
 }
-
 // Method 2: get birth year
 myObject.getBirthYear = function(thisYear) {
   return thisYear - myObject.age;
 }
+
+// Example: rectangular class and its methods
+var rectangle = new Object();  // or we can define the rectangle first, then use 'var rectangle = new rectangle(3, 4);' 
+rectangle.height = 3;
+rectangle.width = 4;
+// here is our method to set the height
+rectangle.setHeight = function (newHeight) {
+  this.height = newHeight;  // notice the 'this' key word here
+};
+// help by finishing this method
+rectangle.setWidth = function (newWidth) {
+  this.width = newWidth;
+}
+// here change the width to 8 and height to 6 using our new methods
+rectangle.setHeight(6);
+rectangle.setWidth(8);
+
+// Alternative way: (also we specify the methods in the constructor)
+function Rectangle(height, width) {
+  this.height = height;
+  this.width = width;
+  this.calcArea = function() {
+      return this.height * this.width;
+  };
+  // put our perimeter function here!
+  this.calcPerimeter = function() {
+      return 2 * (this.height + this.width);  
+  }
+}
+
+var rex = new Rectangle(7,3);
+var area = rex.calcArea();
+var perimeter = rex.calcPerimeter();
+
+// Example: person class
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+  this.species = "Homo Sapiens";
+}
+// Definition
+var sally = new Person("Sally Bowles", 39);  // Notice: the constructor
+var holden = new Person("Holden Caulfield", 16);
+console.log("sally's species is " + sally.species + " and she is " + sally.age);
+console.log("holden's species is " + holden.species + " and he is " + holden.age);
+
+// Arrays
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var arr = new Array(); // like array list in java.
+/* arr[0] = ;
+   arr[1] = ;
+   arr[2] = ;
+   ...
+*/
