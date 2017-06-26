@@ -66,3 +66,14 @@ df.plot(kind = 'bar', stacked = True)
 
 #   correlation matrix
 pd.scatter_matrix(df, diagonal = 'hist')
+
+#   box plot
+df.plot(kind = 'box', subplots = True, legend = True)
+
+#   set subplots
+df.plot(kind = 'line', subplots = True, marker = 'o', legend = False)
+
+#   alternative way
+fig, axes = plt.subplots(nrows=2, ncols=1)
+df[['A']].plot(ax = axes[0], kind = 'hist', bins = 30, normed = True)
+df[['A']].plot(ax = axes[1], kind = 'hist', bins = 30, normed = True, cumulative = True)
