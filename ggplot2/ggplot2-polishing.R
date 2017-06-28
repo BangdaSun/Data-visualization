@@ -30,6 +30,12 @@ hgram + previous_theme
 #   build-in element function has four basic types:
 #   (1) text
 #   element_text() can draw label and title
+#
+#   rotate text of axis:
+#     + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+#   remove text of axis:
+#     + theme(axis.text.x = element_blank())
+
 hgramt = hgram + labs(title = "This is a histogram")
 hgramt
 
