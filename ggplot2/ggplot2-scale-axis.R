@@ -120,3 +120,24 @@ library(vcd)
 #   axis and coord are called guide element
 #   legend tile - axis label, use name = ...
 #   legend key - tick label, use break = ...
+
+#   add legend manually (without melt data)
+#   example of one - variable plot
+df = data.frame(x1 = rnorm(1000000, mean = 2, sd = 3),
+                x2 = rnorm(1000000, mean = 10, sd = 6))
+ggplot(df) + 
+  geom_density(aes(x = x1, y = ..density.., fill = 'less sd'), alpha = I(1/2)) + 
+  geom_density(aes(x = x2, y = ..density.., fill = 'more sd'), alpha = I(1/2)) + 
+  labs(x = 'x') + 
+  theme(legend.position = 'top') +
+  scale_fill_discrete(name = 'Distributions')
+
+#   example of two - variables plot
+df = data.frame(x = 1:20,
+                y = 5.3 * 1:20 + rnorm(20),
+                z = 3.4 * 1:20 + rnorm(20))
+ggplot(df) + 
+  geom_point(aes(x = x, y = y, color = 'line1')) + 
+  geom_point(aes(x = x, y = z, color = 'line2')) +
+  labs(x = 'x') + 
+  scale_color_manual(name = '', values = c('line1' = 'red', 'line2' = 'blue'))
