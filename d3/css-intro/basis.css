@@ -1,0 +1,29 @@
+/*
+  basic syntax:
+  selector {
+    property: value;
+    ...
+  }
+*/
+
+p {
+  font-size: 16px;
+  color: black;
+}
+
+h1 {
+  font-size: 24px;
+  color: red;
+  font-family: Verdana;
+  background-color: grey;
+}
+
+h3 {
+  font-size: 18px;
+  color: red;
+  font-family: Garamond;
+}
+
+span {
+  color: green;
+}
