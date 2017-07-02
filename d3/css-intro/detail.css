@@ -1,0 +1,45 @@
+/*
+  coloring:
+    hexadecimal values - base-16. Each digit can be the numbers 0 through 9 or the letters a through f
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+  
+  font family:
+    serif: A font with little decorative bits on the ends of the strokes that make up letters. 
+    sans-serif: A plain-looking font, like this one. It doesn't have the little doohickies on the ends of letters like a serif font does.
+    cursive: A scripty font! It looks like cursive writing.
+*/
+
+h1 {
+  color: #FF7256;
+  font-family: Verdana, serif;
+}
+
+h2 {
+	color: #cc6666;
+  font-family: sans-serif;
+}
+
+h3 {
+	color: #8a2be2
+  font-family: cursive;
+}
+
+div {
+  color: #cc0000;
+  height: 100px;
+  width: 100px;
+}
+
+td {
+    height: 50px;
+    border: 1px dashed blue;
+}
+
+table {
+    border: 1px solid black;    
+}
+
+a {
+    text-decoration: none;   
+    color: #cc0000;
+}
