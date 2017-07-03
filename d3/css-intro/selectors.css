@@ -1,0 +1,51 @@
+/* cascading
+  nested
+*/
+
+div p {
+  color: #7AC5CD;
+}
+
+/* class selector
+  in html, specify with class="..."
+*/
+
+.red {
+  color: red;
+}
+
+/* id selector:
+  in html, specify with id="..."
+*/
+
+#standout {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*pseudo-class selector
+
+*/
+
+/* links */
+a:link {
+  text-decoration: none;
+  color: #008B45;
+}
+
+a:hover {
+  color: #00FF00;
+}
+
+a:visited {
+  color: ##EE9A00;
+}
+
+/* nth child */
+p:nth-child(1) {
+  color: red;
+}
+
+p:nth-child(3) {
+  color: green;
+}
