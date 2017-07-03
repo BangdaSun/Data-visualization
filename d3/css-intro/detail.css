@@ -7,6 +7,10 @@
     serif: A font with little decorative bits on the ends of the strokes that make up letters. 
     sans-serif: A plain-looking font, like this one. It doesn't have the little doohickies on the ends of letters like a serif font does.
     cursive: A scripty font! It looks like cursive writing.
+
+  selector: 
+    * -> all the elements
+    nested: div h3 -> h3 in div element
 */
 
 h1 {
@@ -43,3 +47,4 @@ a {
     text-decoration: none;   
     color: #cc0000;
 }
+
