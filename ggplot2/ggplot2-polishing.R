@@ -45,6 +45,16 @@ hgramt + theme(plot.title = element_text(size = 20, hjust = .2))
 hgramt + theme(plot.title = element_text(size = 20, face = "bold"))
 hgramt + theme(plot.title = element_text(size = 20, angle = 180))
 
+# example of rotating xticks, it's usually applied in time series plotting
+cdx_cev %>%
+  select(Date, CEV, CDX) %>%
+  melt(id.vars = 'Date') %>%
+  mutate(Date = as.POSIXct(Date, tz = 'America/New_York')) %>%
+  ggplot(aes(x = Date, y = value)) +
+  geom_line(aes(col = variable)) + 
+  scale_x_datetime(date_labels =  '%F', date_breaks = '8 weeks') + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 #   (2) line
 #   element_line() can draw line and segment
 hgram + theme(panel.grid.major = element_line(color = "red"))
