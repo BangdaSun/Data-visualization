@@ -141,3 +141,16 @@ ggplot(df) +
   geom_point(aes(x = x, y = z, color = 'line2')) +
   labs(x = 'x') + 
   scale_color_manual(name = '', values = c('line1' = 'red', 'line2' = 'blue'))
+
+# case: double y - axis, useful in comparing two sequences
+cdx_cev %>%
+  select(Date, CEV, CDX) %>%
+  mutate(Date = as.POSIXct(Date, tz = 'America/New_York')) %>%
+  ggplot(aes(x = Date)) +
+  geom_line(aes(y = CEV, color = 'CEV'), size = 1) +
+  geom_line(aes(y = CDX * times, color = 'CDX'), size = 1) +
+  scale_x_datetime(date_labels =  '%F', date_breaks = '8 weeks') +
+  scale_y_continuous(sec.axis = sec_axis(~.*(1/times), name = 'CDX')) +
+  labs(y = 'CEV') + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  ggtitle(label = 'CEV vs. CDX', subtitle = '(left y-axis is CEV and right y-axis is CDX)')
