@@ -59,6 +59,8 @@ p + xlab(expression(frac(miles, gallon)))
 
 #   (2) limits
 #   domain of scale
+#
+#   can use limits = ... in scale_x_discrete() to reorder bar / box plots
 
 #   (3) breaks and labels
 p = qplot(cyl, wt, data = mtcars)
