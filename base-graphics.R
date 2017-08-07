@@ -72,7 +72,7 @@ aggr_mean
 aggr_mean_ordered <- aggr_mean[order(aggr_mean$x), ]
 aggr_mean_ordered
 
-#   Customerize barplot
+#   Customize barplot
 # * cex.names --> font size
 # * names.arg --> labels
 # * las = ..  --> rotate labels
