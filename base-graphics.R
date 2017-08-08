@@ -14,14 +14,14 @@ abline(lm(mpg ~ wt))
 detach(mtcars)
 dev.off()
 
-#   symbol and line
+#   symbol and line: specify with number or name
 # * type 
 # * pch
 # * cex
 # * lty
 # * lwd
 
-#   color
+#   color: we can specify it with number, color name, hexdecimal, RGB, HSV
 # * col
 # * col.axis
 # * col.lab
@@ -29,7 +29,54 @@ dev.off()
 # * col.sub
 # * fg
 # * bg
+?colors()
 
+# create continuous color vector: rainbow(), heat.colors(), terrain.colors(), topo.colors()
+
+
+#   text: font size, font, font style (bold...)
+# * cex
+# * cex.axis
+# * cex.lab
+# * cex.main
+# * font (style)
+# * font.axis
+# * font.lab
+# * font.main
+# * ps (size)
+# * family: serif, sans, mono
+
+#   figure position and size
+# * pin: width, height
+# * mai: (down, left, up, right)
+# * mar: 
+
+#   axis: specify axis style with axis()
+# * side: position to put axis
+# * at: position of ticks
+# * labels: ticks label
+# * pos
+# * lty
+# * col
+# * las: label parallel(=0) or vertical (=2)
+# * tck: length of tick, default -0.01 ***
+plot(x, y, type = 'p')
+axis(side = 1, tck = 1)
+axis(side = 2, tck = 1)
+
+#   reference line: abline()
+
+#   legend:
+# * location
+# * title
+# * legend
+
+#   text note: text()
+# * location
+# * pos (1, 2, 3, 4)
+# * side
+
+?plotmath
 
 #   also we can include these args into par() 
 
