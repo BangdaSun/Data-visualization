@@ -46,7 +46,8 @@ p + scale_color_brewer(palette = "Set1")
 ### 6.4 More details
 #   6.4.1 general parameters
 #   (1) name
-#   set the label of axis and legend, we can use string or expression (?plotmath)
+#   set the label of axis and legend, we can use string or expression (?plotmath) 
+#   ACTUALLY WE CAN SET LEGEND LABEL/NAME IN scale_fill_../scale_manual_..
 #   with labs(), xlab(), ylab()
 p = qplot(cty, hwy, data = mpg, color = displ)
 p
