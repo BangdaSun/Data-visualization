@@ -80,6 +80,15 @@ axis(side = 2, tck = 1)
 
 #   also we can include these args into par() 
 
+#   multiple-plots
+#   use par() and layout()
+
+#   par(mfrow = c(nrows, ncols)), mfrow can be nfcol = ..
+
+#   layout(mat), mat is used to specify location, e.g.: (fig 1 at row 1, fig 2 and 3 at row 2, 2x2 layout)
+layout(matrix(c(1, 1, 2, 3), 2, 2, byrow = TRUE), widths = c(3, 1), heights = c(1, 2))
+
+
 ### 1. Bar plot
 
 #   Simpliest case
@@ -128,3 +137,9 @@ par(mar = c(5, 8, 4, 2))
 barplot(counts, main = 'Treatment outcome', horiz = TRUE,
   cex.names = .8, names.arg = c('no improvement', 'some improvement', 'marked improvement'),
   las = 2)
+
+
+### 2. Pie plot
+
+
+### 3. Histogram
