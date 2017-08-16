@@ -1,3 +1,4 @@
+#
 # hexbin
 #  
 # reference:
@@ -14,7 +15,7 @@
 #
 library(hexbin)
 
-#   an example
+# example
 x    = rnorm(1000000)
 y    = rnorm(1000000)
 hbin = hexbin(x, y, xbins = 30) 
@@ -25,10 +26,10 @@ gplot.hexbin(hbin, style = 'lattice')
 gplot.hexbin(hbin, style = 'nested.lattice')
 gplot.hexbin(hbin, style = 'constant.col', colramp = NULL)
 
-#   more color option
+# more color option
 ?colorRamp
 
-#   ggplot2
+# in ggplot2
 library(ggplot2)
 df = data.frame(x = x, y = y)
 ggplot(df) +
