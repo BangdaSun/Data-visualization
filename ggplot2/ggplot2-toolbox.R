@@ -3,28 +3,28 @@
 ##########################
 
 ### 5.1 Intro
-#   we will introduce:
-#      basic plot - we can spell their name out
-#      data distributions
-#      overlap problem in scatter plot, useful in large scale data
-#      3-D plot on 2-D
-#      statistical summary
-#      geographical plot, map plot
-#      show the uncertainty and error
-#      add notice
-#      plot weighted data
+# we will introduce:
+#   basic plot - we can spell their name out
+#   data distributions
+#   overlap problem in scatter plot, useful in large scale data
+#   3-D plot on 2-D
+#   statistical summary
+#   geographical plot, map plot
+#   show the uncertainty and error
+#   add notice
+#   plot weighted data
 
 ### 5.2 Strategy to add layers
-#   three aspects:
-#      (1) data itself: almost all visualization will have this
-#      (2) summary of data
-#      (3) metadata (e.g. map background in geographical data), notice
+# three aspects:
+#   (1) data itself: almost all visualization will have this
+#   (2) summary of data
+#   (3) metadata (e.g. map background in geographical data), notice
 
 ### 5.3 Basic plot types
-#   all geom objects are 2-D, therefore x, y is necessary
-#   also with: color, size, fill, shape, linetype
+# all geom objects are 2-D, therefore x, y is necessary
+# also with: color, size, fill, shape, linetype
 
-#   example:
+# example:
 df = data.frame(
   x = c(3, 1, 5),
   y = c(2, 4, 6),
@@ -44,7 +44,7 @@ p + geom_tile() + labs(title = "geom_tile")
 p + geom_polygon() + labs(title = "geom_polygon")
 
 ### 5.4 Distribution
-#   for unvariate distribution, binwidth and breaks are necessary
+# for unvariate distribution, binwidth and breaks are necessary
 
 p = ggplot(diamonds, aes(x = depth))
 p + geom_histogram(aes(y = ..density..), binwidth = .5)
@@ -61,15 +61,15 @@ ggplot(diamonds, aes(depth)) + geom_density()
 ggplot(diamonds, aes(depth)) + geom_density(aes(fill = cut), alpha = .2)
 
 ### 5.5 Overplotting
-#   for small data, we can solve it by changing size of point
-#   example
+# for small data, we can solve it by changing size of point
+# example
 df = data.frame(x = rnorm(2000), y = rnorm(2000))
 norm = ggplot(df, aes(x, y))
 norm + geom_point()
 norm + geom_point(shape = 1)
 norm + geom_point(shape = ".")
 
-#   for larger data set, we can set transparency param alpha = ...
+# for larger data set, we can set transparency param alpha = ...
 norm + geom_point(alpha = 1/3)
 norm + geom_point(alpha = 1/5)
 norm + geom_point(alpha = 1/10)
@@ -77,8 +77,8 @@ norm + geom_point(alpha = 1/10)
 ### 5.6 3-D object
 
 ### 5.7 Map
-#   use maps package: france, italy, nz, county/state/use, world
-#   we can use borders() to draw the borders of the map
+# use maps package: france, italy, nz, county/state/use, world
+# we can use borders() to draw the borders of the map
 library(maps)
 data("us.cities")
 big_cities = subset(us.cities, pop > 600000)
@@ -93,7 +93,7 @@ ggplot(tx_cities, aes(long, lat)) +
 
 ### 5.10 Add notice
 
-#   example: add president info into economics data
+# example: add president info into economics data
 unemp = qplot(date, unemploy, data = economics, geom = "line",
               xlab = "", ylab = "No. unemployed (1000s)")
 previous_theme = theme_set(theme_grey())
@@ -119,7 +119,7 @@ unemp + geom_text(aes(x, y, label = caption),
                   hjust = 1.6, vjust = 1, size = 4)
 
 ### 5.11 Weighted data
-#   e.g. in population data, population or area can be a weight
+# e.g. in population data, population or area can be a weight
 qplot(percwhite, percbelowpoverty, data = midwest)
 qplot(percwhite, percbelowpoverty, data = midwest,
       size = poptotal / 1e6) + scale_size_area("population\n(millions)", breaks = c(.5, 1, 2, 4))
