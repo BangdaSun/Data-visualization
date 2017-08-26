@@ -7,7 +7,7 @@
 console.log('hello javascript');
 
 /*
-  variables: use 'var' keyword 
+  1. Variables: use 'var' keyword 
     character / string
     numbers
     boolean
@@ -26,11 +26,18 @@ Number('12345');
 console.log('My name is: ' + myString + ', I am ' + myNumber + ' year\'s old now.');
 console.log(myBool); 
 
-// Logical operator
-// keep in mind that 'equal' is === in js
-//  && - and, || - or, ! - not
 
-// Control flow
+/* 
+  2. Logical operator
+   keep in mind that 'equal' is === in js
+   && - and, || - or, ! - not
+*/
+
+
+/*
+  3. Control flow and loop
+*/
+
 // if - else - else if
 if (myNumber >= 18) {
   console.log(myName + ' is an adult now.');
@@ -67,13 +74,59 @@ isNaN(NaN); // true
 isNaN("1"); // true
 isNaN(1);   // false
 
+// for
+var sum = 0;
+for (var i = 1; i <= 100; i++){
+  sum = sum + i;
+}
+
+// while
+while (i <= 100) {
+  sum = sum + i;
+  i ++;
+}
+
+// do-while
+do {
+    // statement;
+} while (true);
+
+//  =======================================================================================
+// example: dragon slayer game
+var slaying = true;
+var youHit = Math.floor(Math.random() * 2);
+var damageThisRound = Math.floor(Math.random() * 5 + 1);
+var totalDamage = 0;
+
+while (slaying) {
+    if (youHit === 1) {
+        console.log("congratulations!");
+        if (totalDamage >= 4) {
+            console.log("you slew the dragon!");
+            slaying = false;
+        }
+        else {
+            youHit = Math.floor(Math.random() * 2);    
+        }
+    } 
+    else if (youHit === 0) {
+        console.log("dragon defested you");
+    }
+    totalDamage = totalDamage + damageThisRound;
+    
+    slaying = false;
+}
+// =======================================================================================
+
+
 /*
+  4. Built-in functions for web-front action
   confirm() and prompt() function, as well as practice of prev content
   window object 
   confirm() will display a confirm box, ask users to confirm 
   prompt() will display a prompt box, ask users to do something
 */
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  ========================= examples of usage ======================================
 // Check if the user is ready to play!
 confirm("I am ready to play!"); // give a confirm message to click "OK" on "Cancel"
 
@@ -110,60 +163,23 @@ if (feedback > 8) {
 else {
     console.log("I'll keep practicing coding and racing.");    
 }
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  =========================== end of examples =========================================
 
-// Random numbers
+
+/*
+  5. Random numbers
+*/ 
+
 // using Math. library
 // uniform distribution unif(0, 1)
 var rnd = Math.random();
 
-// Loop
-// for
-var sum = 0;
-for (var i = 1; i <= 100; i++){
-  sum = sum + i;
-}
-
-// while
-while (i <= 100) {
-  sum = sum + i;
-  i ++;
-}
-
-// do-while
-do {
-    // statement;
-} while (true);
 
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// example: dragon slayer game
-var slaying = true;
-var youHit = Math.floor(Math.random() * 2);
-var damageThisRound = Math.floor(Math.random() * 5 + 1);
-var totalDamage = 0;
+/*
+  6. Function (defintion not unique)
+*/
 
-while (slaying) {
-    if (youHit === 1) {
-        console.log("congratulations!");
-        if (totalDamage >= 4) {
-            console.log("you slew the dragon!");
-            slaying = false;
-        }
-        else {
-            youHit = Math.floor(Math.random() * 2);    
-        }
-    } 
-    else if (youHit === 0) {
-        console.log("dragon defested you");
-    }
-    totalDamage = totalDamage + damageThisRound;
-    
-    slaying = false;
-}
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// Function (defintion not unique)
 // python style definition
 function printName(name) {
   console.log(name);
@@ -192,16 +208,15 @@ function myfunc(my_variable) {
   return my_variable + 1;
 }
 
-// Example: game of paper/rock/scissors
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  ============================= example: game of paper/rock/scissors =====================================
 var userChoice = prompt("Do you choose rock, paper or scissors?");
 var computerChoice = Math.random();
 if (computerChoice < 0.34) {
-	computerChoice = "rock";
+    computerChoice = "rock";
 } else if(computerChoice <= 0.67) {
-	computerChoice = "paper";
+    computerChoice = "paper";
 } else {
-	computerChoice = "scissors";
+    computerChoice = "scissors";
 } console.log("Computer: " + computerChoice);
 
 var compare = function(choice1, choice2) {
@@ -235,10 +250,13 @@ var compare = function(choice1, choice2) {
 }
 
 compare(userChoice, computerChoice);
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  ============================== end of examples =========================================
 
-// Array
-// unlike python built-in list, here different data type could be contained in same array
+/*
+  7. Array
+  unlike python built-in list, here different data type could be contained in same array
+*/
+
 var arr = ['one', 'two', 'three'];
 console.log('first element of arr: ' + arr[0]);
 console.log('last element of arr: ' + arr[2]);
@@ -255,7 +273,12 @@ arr.length;
 arr.push('four', 'five');
 arr.pop();
 
-// Object-oriented
+/* 
+  8. Object-oriented
+  see more details here
+    https://github.com/bangdasun/Data-visualization/blob/master/d3/oop.js
+*/
+
 var people = {
   name : "people",
   age  : "1",
