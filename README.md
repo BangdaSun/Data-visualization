@@ -1,5 +1,7 @@
-# Data-visualization
+## Data-visualization
 Data visualization using different tools
+
+### Visualization tips and tricks
 
 ### Reference
 
